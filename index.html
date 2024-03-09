@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pregnancy Safety Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .disclaimer {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pregnancy Safety Checker</h1>
+        <div class="form-group">
+            <label for="drugSelect">Select Drug:</label>
+            <select id="drugSelect">
+                <option value="" disabled selected>Select a drug</option>
+                <option value="acetaminophen">Acetaminophen</option>
+                <option value="albuterol">Albuterol</option>
+                <option value="amoxicillin">Amoxicillin</option>
+                <option value="ciprofloxacin">Ciprofloxacin</option>
+                <option value="diphenhydramine">Diphenhydramine</option>
+                <option value="fluoxetine">Fluoxetine</option>
+                <option value="ranitidine">Ranitidine</option>
+                <option value="codeine">Codeine</option>
+                <option value="loratadine">Loratadine</option>
+                <option value="sertraline">Sertraline</option>
+                <option value="lisinopril">Lisinopril</option>
+                <option value="methotrexate">Methotrexate</option>
+                <option value="ondansetron">Ondansetron</option>
+                <option value="warfarin">Warfarin</option>
+                <option value="albuterol">Albuterol</option>
+                <option value="clindamycin">Clindamycin</option>
+                <option value="tramadol">Tramadol</option>
+                <option value="levofloxacin">Levofloxacin</option>
+                <option value="naproxen">Naproxen</option>
+                <option value="cetirizine">Cetirizine</option>
+                <option value="pantoprazole">Pantoprazole</option>
+                <option value="diazepam">Diazepam</option>
+                <option value="digoxin">Digoxin</option>
+                <option value="simvastatin">Simvastatin</option>
+                <option value="fluconazole">Fluconazole</option>
+                <option value="omeprazole">Omeprazole</option>
+                <option value="atenolol">Atenolol</option>
+                <option value="alprazolam">Alprazolam</option>
+                <option value="amoxicillin/clavulanate">Amoxicillin/Clavulanate</option>
+                <option value="phenytoin">Phenytoin</option>
+                <option value="rosuvastatin">Rosuvastatin</option>
+                <option value="tamsulosin">Tamsulosin</option>
+                <option value="allopurinol">Allopurinol</option>
+                <option value="budesonide">Budesonide</option>
+                <option value="carbamazepine">Carbamazepine</option>
+                <option value="cephalexin">Cephalexin</option>
+                <option value="clonazepam">Clonazepam</option>
+                <option value="clopidogrel">Clopidogrel</option>
+                <option value="gabapentin">Gabapentin</option>
+                <option value="hydrochlorothiazide">Hydrochlorothiazide</option>
+                <option value="levothyroxine">Levothyroxine</option>
+                <option value="nifedipine">Nifedipine</option>
+                <option value="prednisone">Prednisone</option>
+                <option value="quetiapine">Quetiapine</option>
+                <option value="risperidone">Risperidone</option>
+                <option value="sumatriptan">Sumatriptan</option>
+                <option value="tadalafil">Tadalafil</option>
+                <option value="valacyclovir">Valacyclovir</option>
+                <option value="venlafaxine">Venlafaxine</option>
+                <option value="zolpidem">Zolpidem</option>
+                <option value="adalimumab">Adalimumab</option>
+                <option value="atorvastatin">Atorvastatin</option>
+                <option value="azelastine">Azelastine</option>
+                <option value="bupropion">Bupropion</option>
+                <option value="celecoxib">Celecoxib</option>
+                <option value="citalopram">Citalopram</option>
+                <option value="duloxetine">Duloxetine</option>
+                <option value="escitalopram">Escitalopram</option>
+                <option value="etanercept">Etanercept</option>
+                <option value="glatiramer">Glatiramer</option>
+                <option value="hydroxyzine">Hydroxyzine</option>
+                <option value="infliximab">Infliximab</option>
+                <option value="lamotrigine">Lamotrigine</option>
+                <option value="lansoprazole">Lansoprazole</option>
+                <option value="levothyroxine">Levothyroxine</option>
+                <option value="losartan">Losartan</option>
+                <option value="methylphenidate">Methylphenidate</option>
+                <option value="mirtazapine">Mirtazapine</option>
+                <option value="montelukast">Montelukast</option>
+                <option value="olanzapine">Olanzapine</option>
+                <option value="oxycodone">Oxycodone</option>
+                <option value="pioglitazone">Pioglitazone</option>
+                <option value="pregabalin">Pregabalin</option>
+                <option value="quetiapine">Quetiapine</option>
+                <option value="rosuvastatin">Rosuvastatin</option>
+                <option value="sitagliptin">Sitagliptin</option>
+                <option value="topiramate">Topiramate</option>
+                <option value="venlafaxine">Venlafaxine</option>
+                <option value="varenicline">Varenicline</option>
+                <option value="zolpidem">Zolpidem</option>
+                <!-- Add more drugs here -->
+            </select>
+        </div>
+        <button onclick="checkSafety()">Check Safety</button>
+        <div id="result"></div>
+        <p class="disclaimer">Disclaimer: This tool provides information based on available data but should not substitute for professional medical advice. Always consult a healthcare professional before taking any medication during pregnancy.</p>
+    </div>
+
+    <script>
+        var drugData = {
+            "acetaminophen": "Category B - No evidence of risk in humans",
+            "albuterol": "Category C - Risk cannot be ruled out",
+            "amoxicillin": "Category B - No evidence of risk in humans",
+            "ciprofloxacin": "Category C - Risk cannot be ruled out",
+            "diphenhydramine": "Category B - No evidence of risk in humans",
+            "fluoxetine": "Category C - Risk cannot be ruled out",
+            "ranitidine": "Category B - No evidence of risk in humans",
+            "codeine": "Category C - Risk cannot be ruled out",
+            "loratadine": "Category B - No evidence of risk in humans",
+            "sertraline": "Category C - Risk cannot be ruled out",
+            "lisinopril": "Category D - Positive evidence of risk",
+            "methotrexate": "Category X - Contraindicated in pregnancy",
+            "ondansetron": "Category B - No evidence of risk in humans",
+            "warfarin": "Category X - Contraindicated in pregnancy",
+            "albuterol": "Category C - Risk cannot be ruled out",
+            "clindamycin": "Category B - No evidence of risk in humans",
+            "tramadol": "Category C - Risk cannot be ruled out",
+            "levofloxacin": "Category C - Risk cannot be ruled out",
+            "naproxen": "Category C - Risk cannot be ruled out",
+            "cetirizine": "Category B - No evidence of risk in humans",
+            "pantoprazole": "Category B - No evidence of risk in humans",
+            "diazepam": "Category D - Positive evidence of risk",
+            "digoxin": "Category C - Risk cannot be ruled out",
+            "simvastatin": "Category X - Contraindicated in pregnancy",
+            "fluconazole": "Category D - Positive evidence of risk",
+            "omeprazole": "Category C - Risk cannot be ruled out",
+            "atenolol": "Category D - Positive evidence of risk",
+            "alprazolam": "Category D - Positive evidence of risk",
+            "amoxicillin/clavulanate": "Category B - No evidence of risk in humans",
+            "phenytoin": "Category D - Positive evidence of risk",
+            "rosuvastatin": "Category X - Contraindicated in pregnancy",
+            "tamsulosin": "Category B - No evidence of risk in humans",
+            "allopurinol": "Category C - Risk cannot be ruled out",
+            "budesonide": "Category B - No evidence of risk in humans",
+            "carbamazepine": "Category D - Positive evidence of risk",
+            "cephalexin": "Category B - No evidence of risk in humans",
+            "clonazepam": "Category D - Positive evidence of risk",
+            "clopidogrel": "Category B - No evidence of risk in humans",
+            "gabapentin": "Category C - Risk cannot be ruled out",
+            "hydrochlorothiazide": "Category C - Risk cannot be ruled out",
+            "levothyroxine": "Category A - Controlled studies show no risk",
+            "nifedipine": "Category C - Risk cannot be ruled out",
+            "prednisone": "Category C - Risk cannot be ruled out",
+            "quetiapine": "Category C - Risk cannot be ruled out",
+            "risperidone": "Category C - Risk cannot be ruled out",
+            "sumatriptan": "Category C - Risk cannot be ruled out",
+            "tadalafil": "Category B - No evidence of risk in humans",
+            "valacyclovir": "Category B - No evidence of risk in humans",
+            "venlafaxine": "Category C - Risk cannot be ruled out",
+            "zolpidem": "Category C - Risk cannot be ruled out",
+            "adalimumab": "Category B - No evidence of risk in humans",
+            "atorvastatin": "Category X - Contraindicated in pregnancy",
+            "azelastine": "Category C - Risk cannot be ruled out",
+            "bupropion": "Category B - No evidence of risk in humans",
+            "celecoxib": "Category C - Risk cannot be ruled out",
+            "citalopram": "Category C - Risk cannot be ruled out",
+            "duloxetine": "Category C - Risk cannot be ruled out",
+            "escitalopram": "Category C - Risk cannot be ruled out",
+            "etanercept": "Category B - No evidence of risk in humans",
+            "glatiramer": "Category B - No evidence of risk in humans",
+            "hydroxyzine": "Category C - Risk cannot be ruled out",
+            "infliximab": "Category B - No evidence of risk in humans",
+            "lamotrigine": "Category C - Risk cannot be ruled out",
+            "lansoprazole": "Category B - No evidence of risk in humans",
+            "levothyroxine": "Category A - Controlled studies show no risk",
+            "losartan": "Category D - Positive evidence of risk",
+            "methylphenidate": "Category C - Risk cannot be ruled out",
+            "mirtazapine": "Category C - Risk cannot be ruled out",
+            "montelukast": "Category B - No evidence of risk in humans",
+            "olanzapine": "Category C - Risk cannot be ruled out",
+            "oxycodone": "Category B - No evidence of risk in humans",
+            "pioglitazone": "Category C - Risk cannot be ruled out",
+            "pregabalin": "Category C - Risk cannot be ruled out",
+            "quetiapine": "Category C - Risk cannot be ruled out",
+            "rosuvastatin": "Category X - Contraindicated in pregnancy",
+            "sitagliptin": "Category B - No evidence of risk in humans",
+            "topiramate": "Category D - Positive evidence of risk",
+            "venlafaxine": "Category C - Risk cannot be ruled out",
+            "varenicline": "Category C - Risk cannot be ruled out",
+            "zolpidem": "Category C - Risk cannot be ruled out",
+            // Add more drugs here
+        };
+
+        function checkSafety() {
+            var selectedDrug = document.getElementById("drugSelect").value;
+            var resultElement = document.getElementById("result");
+            if (drugData.hasOwnProperty(selectedDrug)) {
+                resultElement.textContent = "Pregnancy Safety Category: " + drugData[selectedDrug];
+            } else {
+                resultElement.textContent = "Drug not found in database. Please consult a healthcare professional.";
+            }
+        }
+    </script>
+</body>
+</html>
